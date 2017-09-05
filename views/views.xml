@@ -33,7 +33,7 @@
                                         <span><strong>Vendor Address:</strong></span>
                                     </div>
                                     <div t-if="o.picking_type_id.code=='internal' and o.partner_id">
-                                        <span><strong>Warehouse Address:</strong></span>
+                                        <span>Warehouse Address:</span>
                                     </div>
                                     <div t-if="o.picking_type_id.code=='outgoing' and o.partner_id">
                                         <span><strong>Customer Address:</strong></span>
@@ -96,7 +96,7 @@
                                 <t t-set="pack_operation_ids" t-value="o.pack_operation_ids"/>
                                 <t groups="base.group_portal" t-set="pack_operation_ids" t-value="o.pack_operation_ids.sudo()"/>
                                 <tr t-foreach="pack_operation_ids" t-as="pack_operation">
-                                    <td><span t-field="pack_operation.product_id"/><br/>
+                                    <td><span t-field="pack_operation.product_id.list_price"/><text>ANGELINA</text><br/>
                                         <span t-field="pack_operation.product_id.description_picking"/>
                                         <t t-if="not pack_operation.product_id and pack_operation.package_id"><span  t-field="pack_operation.package_id"/></t></td>
                                     <td class="text-right"><span t-field="pack_operation.product_qty"/> <span t-field="pack_operation.product_uom_id" groups="product.group_uom"/></td>
